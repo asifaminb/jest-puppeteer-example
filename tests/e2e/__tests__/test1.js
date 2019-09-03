@@ -1,7 +1,7 @@
 
 const puppeteer = require("puppeteer");
 const constants = require("../config/constants");
-const timeout = 5000
+const timeout = 15000
 
 describe(
   '/ (Home Page)',
