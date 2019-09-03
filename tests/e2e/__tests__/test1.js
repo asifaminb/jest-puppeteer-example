@@ -10,7 +10,7 @@ describe(
     beforeAll(async () => {
       const browser = await puppeteer.launch({
         executablePath:
-          "/usr/bin/google-chrome",
+          "/Users/asifamin/Sites/jest-puppeteer-example/node_modules/chromium/lib/chromium/chrome-mac/Chromium.app/Contents/MacOS/Chromium",
         headless: true
       })
       page = (await browser.pages())[0]
@@ -37,5 +37,4 @@ describe(
       expect(await page.evaluate('window.getComputedStyle(document.getElementById(\'qg-page-feedback\')).getPropertyValue("display")')).not.toBe('none');
     });
   },
-  timeout
 )
