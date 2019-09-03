@@ -21,7 +21,11 @@ jobs:
           command: 'sh .circleci/setup_puppeteer.sh'
 
       - run: yarn install
-      - run: yarn serve
+
+      - run:
+           name: yarn serve
+           command: yarn serve
+           background: true
 
       - save_cache:
           paths:
