@@ -9,7 +9,7 @@ describe(
     let page
     beforeAll(async () => {
       page = await global.__BROWSER__.newPage()
-      await page.setViewport({ width: 2000, height: 1600});
+      // await page.setViewport({ width: 2000, height: 1600});
       await page.goto(`${constants.APP_URL}/docs/components.html`)
     }, timeout)
 
