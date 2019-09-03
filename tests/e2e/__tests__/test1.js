@@ -8,12 +8,16 @@ describe(
   () => {
     let page
     beforeAll(async () => {
-      page = await global.__BROWSER__.newPage()
-      // await page.setViewport({ width: 2000, height: 1600});
+      const browser = await puppeteer.launch({
+        headless: true
+      })
+      page = (await browser.pages())[0]
+      await page.setViewport({ width: 2000, height: 1600});
       await page.goto(`${constants.APP_URL}/docs/components.html`)
     }, timeout)
 
     afterAll(async () => {
+      await browser.close()
       await page.close()
     })
 
@@ -30,5 +34,6 @@ describe(
       await page.click('input[name=page-feedback-about]')
       expect(await page.evaluate('window.getComputedStyle(document.getElementById(\'qg-page-feedback\')).getPropertyValue("display")')).not.toBe('none');
     });
-  }, timeout
+  },
+  timeout
 )
