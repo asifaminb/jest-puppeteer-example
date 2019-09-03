@@ -9,8 +9,6 @@ describe(
     let page
     beforeAll(async () => {
       const browser = await puppeteer.launch({
-        executablePath:
-          "/Users/asifamin/Sites/jest-puppeteer-example/node_modules/chromium/lib/chromium/chrome-mac/Chromium.app/Contents/MacOS/Chromium",
         headless: true
       })
       page = (await browser.pages())[0]
